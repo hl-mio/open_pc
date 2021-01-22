@@ -1,0 +1,34 @@
+spring:
+#   -- redis
+#  redis:
+#    database: 0      # 指定数据库，默认为0
+#    timeout: 2000    # 连接超时时间，单位毫秒 （不能为0）
+#    ssl: false       # 是否启用SSL连接，默认false
+#    lettuce:
+#      pool:
+#        max-active: 20
+#        max-idle: 20
+#        min-idle: 0
+#        max-wait: -1
+#    jedis:
+#      pool:   #连接池配置
+#        max-idle: 20      # 最大空闲连接数，默认8个。
+#        max-wait: -1      # 获取连接的最大等待时间，默认-1，表示无限制，单位毫秒。默认值可能会因为获取不到连接，导致事务无法提交，数据库被锁，大量线程处于等待状态的情况。
+#        min-idle: 0       # 最小空闲连接数，默认0。
+#    password:
+#    cluster:
+#      max-redirects:    # 集群模式下，集群最大转发的数量
+#      nodes: 127.0.0.1:35041,127.0.0.1:35042  # 集群节点
+
+  # -- 数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver   # 比较新的mysql版本使用： com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:35003/open_pc?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: admin
+    password: admin
+
+mybatis-plus:
+  # 扫描 mapper.xml
+  mapper-locations: classpath:/sql/**/*Mapper.xml,classpath:/mapper/**/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true

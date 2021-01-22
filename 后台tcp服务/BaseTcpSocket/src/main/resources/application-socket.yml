@@ -1,0 +1,6 @@
+socket:
+  port: 45311
+  charsetName: "utf-8"
+
+  redis_open_pc_key: "open_pc:开机命令队列"
+  redis_shutdown_pc_key: "open_pc:关机命令队列"
