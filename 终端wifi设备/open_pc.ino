@@ -144,7 +144,7 @@ void loop() {
     //        }
         }
         if(loop_count>20){
-          loop_count = 0;
+          loop_count = 1;
           client.write(keep_alive_info.c_str());
         }
     }
