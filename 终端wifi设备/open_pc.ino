@@ -2,7 +2,7 @@
 #include <WiFiUdp.h>
 
 const char wifi_name[]     = "MERCURY_63EF";         // 当前的 wifi 名称
-const char wifi_password[] = "123456";         //  当前的 wifi 密码
+const char wifi_password[] = "123456";               //  当前的 wifi 密码
 const char pc_ip[] = "192.168.3.255";
 
 byte mac_1 = 0x43;
