@@ -1,23 +1,23 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char wifi_name[]     = "MERCURY_63EF";         // 当前的 wifi 名称
-const char wifi_password[] = "123456";               //  当前的 wifi 密码
-const char pc_ip[] = "192.168.3.255";
+const char wifi_name[]     = "wifi_name";         //  当前的 wifi 名称
+const char wifi_password[] = "wifi_password";     //  当前的 wifi 密码
+const char pc_ip[] = "192.168.3.255";             //  当前主机的ip所在网段
 
-byte mac_1 = 0x43;
-byte mac_2 = 0xE8;
+byte mac_1 = 0x00;                                //  当前主机的mac地址
+byte mac_2 = 0xF2;
 
-byte mac_3 = 0x39;
-byte mac_4 = 0x71;
+byte mac_3 = 0x12;
+byte mac_4 = 0x53;
 
-byte mac_5 = 0x49;
-byte mac_6 = 0x2A;
+byte mac_5 = 0x07;
+byte mac_6 = 0xC2;
 
 
-const char server_ip[] = "127.0.0.1";
-const int  server_port = 45311;
-String dev_id = "hlmio";
+const char server_ip[] = "152.76.132.15";        //  后台服务器的ip
+const int  server_port = 45311;                   //  后台服务器的端口
+String dev_id = "hlmio";                          //  给后台服务器的当前设备标识
 
 String rst_open = "201";
 String rst_shutdown = "202";
@@ -103,25 +103,23 @@ int check_and_link_tcp()
 
 void setup() {
     // put your setup code here, to run once:
-    Serial.println("0");
-    
     Serial.begin(115200);
     Serial.println("hello world");
-    WiFi.mode(WIFI_AP_STA);               //设置工作模式 
+    WiFi.mode(WIFI_STA);               //设置工作模式 
     WiFi.setAutoConnect(false);
     delay(100);
     Serial.println("1");
     
     // 连接到wifi
-    check_and_link_wifi();
-    Serial.println("2");
+    //check_and_link_wifi();
+    //Serial.println("2");
     
     //建立tcp连接并判断
-    check_and_link_tcp();
-    Serial.println("3");
+    //check_and_link_tcp();
+    //Serial.println("3");
 
     build_wake_msg();
-    open_pc(wake_msg);
+    //open_pc(wake_msg);
     Serial.println("4");
 
     delay(1000);
@@ -136,7 +134,7 @@ void loop() {
         while (client.available())//available()表示是否可以获取到数据
         {
             rst = client.readString();
-			      Serial.println(rst);
+			// Serial.println(rst);
             if(rst == rst_open or rst.indexOf(rst_open)>-1){
                open_pc(wake_msg);
             }
@@ -144,7 +142,7 @@ void loop() {
     //        }
         }
         if(loop_count>20){
-          loop_count = 1;
+          loop_count = 0;
           client.write(keep_alive_info.c_str());
         }
     }
