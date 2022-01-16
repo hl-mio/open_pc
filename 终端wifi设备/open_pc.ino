@@ -6,16 +6,16 @@ const char wifi_password[] = "wifi_password";     //  当前的 wifi 密码
 const char pc_ip[] = "192.168.3.255";             //  当前主机的ip所在网段
 
 byte mac_1 = 0x00;                                //  当前主机的mac地址
-byte mac_2 = 0xF2;
+byte mac_2 = 0xD8;
 
-byte mac_3 = 0x12;
-byte mac_4 = 0x53;
+byte mac_3 = 0x61;
+byte mac_4 = 0x71;
 
-byte mac_5 = 0x07;
-byte mac_6 = 0xC2;
+byte mac_5 = 0x03;
+byte mac_6 = 0xC9;
 
 
-const char server_ip[] = "152.76.132.15";        //  后台服务器的ip
+const char server_ip[] = "152.76.132.15";         //  后台服务器的ip
 const int  server_port = 45311;                   //  后台服务器的端口
 String dev_id = "hlmio";                          //  给后台服务器的当前设备标识
 
