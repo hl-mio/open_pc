@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char wifi_name[]     = "wifi_name";         //  当前的 wifi 名称
-const char wifi_password[] = "wifi_password";     //  当前的 wifi 密码
+const char wifi_name[]     = "MERCURY_63EF";      //  当前的 wifi 名称
+const char wifi_password[] = "123456";            //  当前的 wifi 密码
 const char pc_ip[] = "192.168.3.255";             //  当前主机的ip所在网段
 
 byte mac_1 = 0x00;                                //  当前主机的mac地址
